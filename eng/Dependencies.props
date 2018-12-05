@@ -27,8 +27,6 @@
     <SystemValueTuplePackageVersion>4.5.0</SystemValueTuplePackageVersion>
   </PropertyGroup>
 
-  <!-- This may import a generated file which may override the variables above. -->
-  <Import Project="$(DotNetPackageVersionPropsPath)" Condition=" '$(DotNetPackageVersionPropsPath)' != '' " />
   <ItemGroup Label=".NET Core dependencies">
     <LatestPackageReference Include="FSharp.Core" Version="$(FSharpCorePackageVersion)" />
     <LatestPackageReference Include="Microsoft.Win32.Registry" Version="$(MicrosoftWin32RegistryPackageVersion)" />
@@ -60,6 +58,7 @@
   <PropertyGroup Label="External dependency versions">
     <XUnitVersion>2.4.0</XUnitVersion>
     <XUnitRunnerVisualStudioVersion>$(XUnitVersion)</XUnitRunnerVisualStudioVersion>
+    <XUnitRunnerConsoleVersion>$(XUnitVersion)</XUnitRunnerConsoleVersion>
   </PropertyGroup>
 
   <ItemGroup Label="External dependencies">
