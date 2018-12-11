@@ -26,7 +26,8 @@ namespace Microsoft.AspNetCore.Certificates.Generation.Tests
 
         public ITestOutputHelper Output { get; }
 
-        [Fact]
+        [ConditionalFact]
+        [OSSkipCondition(OperatingSystems.MacOSX)] // https://github.com/aspnet/Extensions/issues/623
         public void EnsureCreateHttpsCertificate_CreatesACertificate_WhenThereAreNoHttpsCertificates()
         {
             try
@@ -125,7 +126,8 @@ namespace Microsoft.AspNetCore.Certificates.Generation.Tests
             }
         }
 
-        [Fact]
+        [ConditionalFact]
+        [OSSkipCondition(OperatingSystems.MacOSX)] // https://github.com/aspnet/Extensions/issues/623
         public void EnsureCreateHttpsCertificate_DoesNotCreateACertificate_WhenThereIsAnExistingHttpsCertificates()
         {
             // Arrange
@@ -197,7 +199,8 @@ namespace Microsoft.AspNetCore.Certificates.Generation.Tests
             }
         }
 
-        [Fact]
+        [ConditionalFact]
+        [OSSkipCondition(OperatingSystems.MacOSX)] // https://github.com/aspnet/Extensions/issues/623
         public void EnsureCreateIdentityTokenSigningCertificate_CreatesACertificate_WhenThereAreNoHttpsCertificates()
         {
             // Arrange
@@ -264,7 +267,8 @@ namespace Microsoft.AspNetCore.Certificates.Generation.Tests
             Assert.Equal(identityCertificate.GetCertHashString(), exportedCertificate.GetCertHashString());
         }
 
-        [Fact]
+        [ConditionalFact]
+        [OSSkipCondition(OperatingSystems.MacOSX)] // https://github.com/aspnet/Extensions/issues/623
         public void EnsureCreateIdentityTokenSigningCertificate_DoesNotCreateACertificate_WhenThereIsAnExistingHttpsCertificates()
         {
             // Arrange
